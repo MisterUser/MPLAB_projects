@@ -1,1 +1,4 @@
 *.zip
+dspic33_FFT_DSPLib.X/build/
+dspic33_FFT_DSPLib.X/dist/
+

@@ -1,3 +1,6 @@
+#ifndef FFT_GK_H
+#define FFT_GK_H
+
 /* Constant Definitions */
 #define FFT_BLOCK_LENGTH	256     /* = Number of frequency points in the FFT */
 #define LOG2_BLOCK_LENGTH 	8	/* = Number of "Butterfly" Stages in FFT processing */
@@ -11,3 +14,20 @@
                                 	/*coefficient file into your Project. An example file for a 256-pt FFT*/
                                 	/*is provided in this Code example */
 
+
+/* Global Definitions */
+#ifndef FFTTWIDCOEFFS_IN_PROGMEM
+fractcomplex twiddleFactors[FFT_BLOCK_LENGTH/2] 	/* Declare Twiddle Factor array in X-space*/
+__attribute__ ((section (".xbss, bss, xmemory"), aligned (FFT_BLOCK_LENGTH*2)));
+#else
+extern const fractcomplex twiddleFactors[FFT_BLOCK_LENGTH/2]	/* Twiddle Factor array in Program memory */
+__attribute__ ((space(auto_psv), aligned (FFT_BLOCK_LENGTH*2)));
+#endif
+
+
+
+
+void setup_FFT_input(fractcomplex* sigCmpx);
+unsigned long freq_detect_FFT(fractcomplex* sigCmpx);
+
+#endif //FFT_GK_H

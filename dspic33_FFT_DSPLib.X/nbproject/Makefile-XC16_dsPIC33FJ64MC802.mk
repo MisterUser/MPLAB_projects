@@ -19,7 +19,7 @@ endif
 endif
 
 # Environment
-MKDIR=mkdir -p
+MKDIR=gnumkdir -p
 RM=rm -f 
 MV=mv 
 CP=cp 
@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c interrupts.c main.c system.c traps.c user.c /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c
+SOURCEFILES_QUOTED_IF_SPACED=configuration_bits.c interrupts.c main.c system.c traps.c user.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/user.o.d ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o ${OBJECTDIR}/_ext/993707244/twiddleFactors.o ${OBJECTDIR}/_ext/993707244/fft.o ${OBJECTDIR}/_ext/993707244/uart.o ${OBJECTDIR}/_ext/993707244/timers.o ${OBJECTDIR}/_ext/993707244/ADC.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/configuration_bits.o.d ${OBJECTDIR}/interrupts.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/system.o.d ${OBJECTDIR}/traps.o.d ${OBJECTDIR}/user.o.d ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d ${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d ${OBJECTDIR}/_ext/993707244/fft.o.d ${OBJECTDIR}/_ext/993707244/uart.o.d ${OBJECTDIR}/_ext/993707244/timers.o.d ${OBJECTDIR}/_ext/993707244/ADC.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o
+OBJECTFILES=${OBJECTDIR}/configuration_bits.o ${OBJECTDIR}/interrupts.o ${OBJECTDIR}/main.o ${OBJECTDIR}/system.o ${OBJECTDIR}/traps.o ${OBJECTDIR}/user.o ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o ${OBJECTDIR}/_ext/993707244/twiddleFactors.o ${OBJECTDIR}/_ext/993707244/fft.o ${OBJECTDIR}/_ext/993707244/uart.o ${OBJECTDIR}/_ext/993707244/timers.o ${OBJECTDIR}/_ext/993707244/ADC.o
 
 # Source Files
-SOURCEFILES=configuration_bits.c interrupts.c main.c system.c traps.c user.c /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c
+SOURCEFILES=configuration_bits.c interrupts.c main.c system.c traps.c user.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c
 
 
 CFLAGS=
@@ -124,19 +124,47 @@ ${OBJECTDIR}/user.o: user.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/user.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/user.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o: /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1562510054" 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  -o ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  -o ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1562510054/twiddleFactors.o: /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1562510054" 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  -o ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/_ext/993707244/twiddleFactors.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/twiddleFactors.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  -o ${OBJECTDIR}/_ext/993707244/twiddleFactors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/fft.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/fft.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/fft.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c  -o ${OBJECTDIR}/_ext/993707244/fft.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/fft.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/fft.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/uart.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/uart.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c  -o ${OBJECTDIR}/_ext/993707244/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/uart.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/uart.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/timers.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/timers.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/timers.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c  -o ${OBJECTDIR}/_ext/993707244/timers.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/timers.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/timers.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/ADC.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/ADC.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/ADC.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c  -o ${OBJECTDIR}/_ext/993707244/ADC.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/ADC.o.d"      -g -D__DEBUG     -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/ADC.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/configuration_bits.o: configuration_bits.c  nbproject/Makefile-${CND_CONF}.mk
@@ -181,19 +209,47 @@ ${OBJECTDIR}/user.o: user.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  user.c  -o ${OBJECTDIR}/user.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/user.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/user.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o: /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1562510054" 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  -o ${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1562510054/inputsignal_square1khz.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c  -o ${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/inputsignal_square1khz.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/_ext/1562510054/twiddleFactors.o: /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}/_ext/1562510054" 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d 
-	@${RM} ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  /home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  -o ${OBJECTDIR}/_ext/1562510054/twiddleFactors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/_ext/1562510054/twiddleFactors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+${OBJECTDIR}/_ext/993707244/twiddleFactors.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/twiddleFactors.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c  -o ${OBJECTDIR}/_ext/993707244/twiddleFactors.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/twiddleFactors.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/fft.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/fft.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/fft.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c  -o ${OBJECTDIR}/_ext/993707244/fft.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/fft.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/fft.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/uart.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/uart.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/uart.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c  -o ${OBJECTDIR}/_ext/993707244/uart.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/uart.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/uart.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/timers.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/timers.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/timers.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c  -o ${OBJECTDIR}/_ext/993707244/timers.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/timers.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/timers.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/_ext/993707244/ADC.o: C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}/_ext/993707244" 
+	@${RM} ${OBJECTDIR}/_ext/993707244/ADC.o.d 
+	@${RM} ${OBJECTDIR}/_ext/993707244/ADC.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c  -o ${OBJECTDIR}/_ext/993707244/ADC.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/_ext/993707244/ADC.o.d"        -g -omf=elf -mlarge-data -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/_ext/993707244/ADC.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
@@ -212,15 +268,15 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: link
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  /opt/microchip/xc16/v1.24/lib/libdsp-elf.a  
+dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  C:/Program\ Files\ (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a  
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    /opt/microchip/xc16/v1.24/lib/libdsp-elf.a  -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG   -omf=elf  -mreserve=data@0x800:0x84F   -Wl,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    "C:\Program Files (x86)\Microchip\xc16\v1.24\lib\libdsp-elf.a"  -mcpu=$(MP_PROCESSOR_OPTION)        -D__DEBUG   -omf=elf  -mreserve=data@0x800:0x84F   -Wl,,--defsym=__MPLAB_BUILD=1,--defsym=__MPLAB_DEBUG=1,--defsym=__DEBUG=1,,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
 	
 else
-dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  /opt/microchip/xc16/v1.24/lib/libdsp-elf.a 
+dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${OUTPUT_SUFFIX}: ${OBJECTFILES}  nbproject/Makefile-${CND_CONF}.mk  C:/Program\ Files\ (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a 
 	@${MKDIR} dist/${CND_CONF}/${IMAGE_TYPE} 
-	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    /opt/microchip/xc16/v1.24/lib/libdsp-elf.a  -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
-	${MP_CC_DIR}/xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
+	${MP_CC} $(MP_EXTRA_LD_PRE)  -o dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}    "C:\Program Files (x86)\Microchip\xc16\v1.24\lib\libdsp-elf.a"  -mcpu=$(MP_PROCESSOR_OPTION)        -omf=elf -Wl,,--defsym=__MPLAB_BUILD=1,$(MP_LINKER_FILE_OPTION),--stack=16,--check-sections,--data-init,--pack-data,--handles,--isr,--no-gc-sections,--fill-upper=0,--stackguard=16,--no-force-link,--smart-io,-Map="${DISTDIR}/${PROJECTNAME}.${IMAGE_TYPE}.map",--report-mem$(MP_EXTRA_LD_POST) 
+	${MP_CC_DIR}\\xc16-bin2hex dist/${CND_CONF}/${IMAGE_TYPE}/dspic33_FFT_DSPLib.X.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX} -a  -omf=elf  
 	
 endif
 
@@ -240,7 +296,7 @@ endif
 # Enable dependency checking
 .dep.inc: .depcheck-impl
 
-DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})
+DEPFILES=$(shell mplabwildcard ${POSSIBLE_DEPFILES})
 ifneq (${DEPFILES},)
 include ${DEPFILES}
 endif

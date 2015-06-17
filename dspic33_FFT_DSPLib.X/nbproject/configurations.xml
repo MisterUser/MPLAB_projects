@@ -6,6 +6,11 @@
                    projectFiles="true">
       <itemPath>system.h</itemPath>
       <itemPath>user.h</itemPath>
+      <itemPath>fft.h</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/HardwareProfile.h</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.h</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.h</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -20,8 +25,12 @@
       <itemPath>system.c</itemPath>
       <itemPath>traps.c</itemPath>
       <itemPath>user.c</itemPath>
-      <itemPath>/home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c</itemPath>
-      <itemPath>/home/g/workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/inputsignal_square1khz.c</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/twiddleFactors.c</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/fft.c</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/uart.c</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/timers.c</itemPath>
+      <itemPath>C:/Users/Mr/Workspace/MPLAB_projects/dspic33_FFT_DSPLib.X/ADC.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -31,8 +40,10 @@
     <itemPath>getting_started.txt</itemPath>
     <itemPath>legal_disclaimer.txt</itemPath>
     <itemPath>project_information.txt</itemPath>
-    <itemPath>fft.h</itemPath>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>C:\Users\Mr\Workspace\MPLAB_projects\dspic33_FFT_DSPLib.X</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="C30_dsPIC33FJ256GP710A" type="2">
@@ -44,12 +55,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -251,12 +262,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -458,12 +469,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>C30</languageToolchain>
         <languageToolchainVersion>3_31</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -565,12 +576,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -765,12 +776,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>C30</languageToolchain>
         <languageToolchainVersion>3_31</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -910,12 +921,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -1095,12 +1106,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>C30</languageToolchain>
         <languageToolchainVersion>3_31</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -1183,12 +1194,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -1364,12 +1375,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>C30</languageToolchain>
         <languageToolchainVersion>3_31</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -1504,12 +1515,12 @@
         <platformTool>ICD3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>
@@ -1737,12 +1748,12 @@
         <platformTool>MICROSTICKPlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
         <languageToolchainVersion>1.24</languageToolchainVersion>
-        <platform>2</platform>
+        <platform>3</platform>
       </toolsSet>
       <compileType>
         <linkerTool>
           <linkerLibItems>
-            <linkerLibFileItem>/opt/microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
+            <linkerLibFileItem>C:/Program Files (x86)/Microchip/xc16/v1.24/lib/libdsp-elf.a</linkerLibFileItem>
           </linkerLibItems>
         </linkerTool>
         <archiverTool>

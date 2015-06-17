@@ -1,3 +1,11 @@
+#ifndef USER_H
+#define	USER_H
+
+
+#include "uart.h"
+#include "timers.h"
+#include "ADC.h"
+
 /******************************************************************************/
 /* User Level #define Macros                                                  */
 /******************************************************************************/
@@ -8,6 +16,6 @@
 /* User Function Prototypes                                                   */
 /******************************************************************************/
 
-/* TODO User level functions prototypes (i.e. InitApp) go here */
-
 void InitApp(void);         /* I/O and Peripheral Initialization */
+
+#endif	/* USER_H */
