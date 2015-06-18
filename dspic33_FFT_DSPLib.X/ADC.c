@@ -42,9 +42,11 @@
 #include <dsp.h>
 #include "fft.h"
 
-//extern fractional inputSignal[NUMSAMP];
+//vars from main.c
 extern fractional * iPtr;
 extern int doFilterFlag;
+
+//from inputsignal_square1khz.c
 /* Typically, the input signal to an FFT  
  * routine is a complex array containing samples 
  * of an input signal. For this example, */
@@ -76,7 +78,7 @@ void ADC_Init(void)
         //AD1CON2 Register
         //Set up A/D for interrupting after 16 samples get filled in the buffer
         //All other bits to their default state
-        AD1CON2bits.SMPI = 15; // Sample and Conversion Operation: 15 = 1111 
+        AD1CON2bits.SMPI = 0; // Sample and Conversion Operation: 15 = 1111 
                                // = ADC Int generated after 16th sample/conv.
         AD1CON2bits.VCFG = 0; //0b000 = Vrefh -> AVdd and Vrefl -> AVss
         //_VCFG = 0; //0b000 = Vrefh -> AVdd and Vrefl -> AVss
@@ -131,6 +133,7 @@ void ADC_Init(void)
         //entered main() out of reset
         AD1PCFGL = 0xFFFF;
         AD1PCFGLbits.PCFG5 = 0;
+        AD1PCFGLbits.PCFG1 = 0;
 
         //Clear the A/D interrupt flag bit
         IFS0bits.AD1IF = 0;
@@ -162,13 +165,18 @@ void __attribute__((__interrupt__)) _ADC1Interrupt(void)
 
         //Copy the A/D conversion results to variable "inputSignal"
         adcPtr = &ADCBUF0 ;
-        for (i=0;i<16;i++)
-        {
-                *iPtr++= *adcPtr++;
-        }
-        if (iPtr > &(sigCmpx[NUMSAMP]))
+        *iPtr = *adcPtr;
+        iPtr++;
+//        for (i=0;i<16;i++)
+//        {
+//                *iPtr++= *adcPtr++;
+//        }
+        if (iPtr > &(sigCmpx[127]))
         {
             doFilterFlag = 1;
+            //Start Timer 3
+            T3CONbits.TON = 0;
+            AD1CON1bits.ADON = 0;
         }
 
 }

@@ -97,6 +97,8 @@ int16_t main(void)
             peakFrequency = freq_detect_FFT(&sigCmpx[0]);
             doFilterFlag = 0;
             iPtr = &sigCmpx[0];//&inputSignal[0];
+            AD1CON1bits.ADON = 1;
+            T3CONbits.TON = 1;
         }
 		
         

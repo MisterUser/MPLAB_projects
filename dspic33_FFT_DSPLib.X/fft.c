@@ -43,11 +43,12 @@ void setup_FFT_input(fractcomplex* sigCmpx)
 						/* the real input samples followed by a series of zeros */
 
 
-	for ( i = FFT_BLOCK_LENGTH; i > 0; i-- ) /* Convert the Real input sample array */
+	for ( i = FFT_BLOCK_LENGTH-1; i > 0; i-- ) /* Convert the Real input sample array */
 	{					/* to a Complex input sample array  */
 		(*p_cmpx).real = (*p_real--);	/* We will simpy zero out the imaginary  */
 		(*p_cmpx--).imag = 0x0000;	/* part of each data sample */
 	}
+    (*p_cmpx).imag = 0x0000; //set first element's imag to 0
 }
 
 unsigned long freq_detect_FFT(fractcomplex* sigCmpx)
@@ -68,9 +69,12 @@ unsigned long freq_detect_FFT(fractcomplex* sigCmpx)
 
 	/* Find the frequency Bin ( = index into the SigCmpx[] array) that has the largest energy*/
 	/* i.e., the largest spectral component */
-	VectorMax(FFT_BLOCK_LENGTH/2, &(sigCmpx->real), &peakFrequencyBin);
+    fractional *p_real = &(sigCmpx->real);//pointer to real part
+    //increment p_real to ignore DC bin
+	VectorMax(FFT_BLOCK_LENGTH/2-1, (++p_real), &peakFrequencyBin);
 
 	/* Compute the frequency (in Hz) of the largest spectral component */
-	return peakFrequencyBin*(SAMPLING_RATE/FFT_BLOCK_LENGTH);
+	//0th bin from VectorMax is actually bin 1, so offset peakFrequencyBin by 1
+    return (peakFrequencyBin+1)*(SAMPLING_RATE/FFT_BLOCK_LENGTH);
     
 }
