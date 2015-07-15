@@ -40,6 +40,7 @@
 #include <p33Fxxxx.h>
 #include "ADC.h"
 #include <dsp.h>
+#include <p33FJ64MC802.h>
 #include "fft.h"
 
 //vars from main.c
@@ -98,7 +99,9 @@ void ADC_Init(void)
         //TAD for FAD of 40kHz = 25us
         //ADCS = 2*TAD/TCY = 2*25000ns/12.5ns = 4000 (Only goes to 63)
         //TAD = 12.5*(64)/2 = 400ns (FAD = 2.5MHz)
-        AD1CON3bits.ADCS = 63; // Conversion Clock Select: 63 * Tcy = TAD
+        //TCY = 1/20MHz = 50ns
+        //
+        AD1CON3bits.ADCS = 10; // Conversion Clock Select: 63 * Tcy = TAD
 
         //Next, we will to set up Timer 3 to time-out every 125 microseconds
         //As a result, the module will stop sampling and trigger a conversion
@@ -116,7 +119,10 @@ void ADC_Init(void)
         TMR3 = 0x0000;
         PR3 = SAMPCOUNT;
         IFS0bits.T3IF = 0;
-        IEC0bits.T3IE = 0;
+        
+        //ENABLE interrupt to check sample rate
+        IPC2bits.T3IP = 4; //TEMP!!!/* set Tim3 interrupt priority level to 4 */
+        IEC0bits.T3IE = 1; //TEMP!!!
 
         //ADCHS Register
         //Set up A/D Channel Select Register to convert AN5 on Mux A input
@@ -137,9 +143,11 @@ void ADC_Init(void)
 
         //Clear the A/D interrupt flag bit
         IFS0bits.AD1IF = 0;
+        IPC3bits.AD1IP = 6; //6/7 priority
 
         //Set the A/D interrupt enable bit
         IEC0bits.AD1IE = 1;
+        
 
         //Turn on the A/D converter
         //This is typically done after configuring other registers
@@ -157,7 +165,7 @@ void __attribute__((__interrupt__)) _ADC1Interrupt(void)
         //Clear the Timer3 Interrupt Flag
         IFS0bits.T3IF = 0;
 
-        int i = 0;
+        //int i = 0;
 
         //Clear the A/D Interrupt flag bit or else the CPU will
         //keep vectoring back to the ISR
@@ -171,7 +179,13 @@ void __attribute__((__interrupt__)) _ADC1Interrupt(void)
 //        {
 //                *iPtr++= *adcPtr++;
 //        }
-        if (iPtr > &(sigCmpx[127]))
+        
+        //sigCmpx is fractcomplex and iPtr is only
+        //fractional, meaning that checking that iPtr
+        //is > sigCmpx[127] will not allow the 256th
+        //fractional element to be written because after
+        //the 255th, it will be > 127th fractcomplex address
+        if(iPtr >= &(sigCmpx[FFT_BLOCK_LENGTH/2])) 
         {
             doFilterFlag = 1;
             //Start Timer 3

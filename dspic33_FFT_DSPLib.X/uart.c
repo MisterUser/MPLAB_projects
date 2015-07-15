@@ -33,10 +33,10 @@ void InitializeUART1(void){
 	//we need to configure it for RP14/RP15 to use the FTDI usb->serial converter
 	//you could also output one (or both) of the two available UARTS to the I/O header
 	//assign pin 14 to the UART1 RX input register
-	//RX PR14 (input)
+	//RX RP6 (input) -> pin 15
 	U1RXR_I = 6;
 	//assign UART1 TX function to the pin 15 output register
-	//TX RP15 (output)
+	//TX RP7 (output) -> pin 16
 	RP7_O=U1TX_O;
     
 	//setup UART
@@ -48,7 +48,40 @@ void InitializeUART1(void){
     IFS0bits.U1RXIF = 0;  //clear the receive flag
 }
 
+void usart_print_decimal(unsigned long value)
+{
+  int powOfTen = 5;// numDigits-1;
+/*
+  if(value>=10^(numDigits-1))
+  {
+     powOfTen = numDigits -1;
+  }
+  else if(value>=10^(numDigits-2))
+  {
+     powOfTen = numDigits -2;
+  }
+  else if(value>=10^(numDigits-3))
+  {
+     powOfTen = numDigits -3;
+  }
+  else powOfTen = 0;
+*/
 
+  long denom;
+  int valreached = 0;
+  while(powOfTen >=0)
+  {
+    denom=pow(10,powOfTen);
+    if(value >=denom || valreached)
+	{
+	   UART1TX((char)((value/denom)+'0'));
+	   valreached = 1;
+	}
+	value = value%denom;
+	powOfTen--;
+  } 
+   
+}
 
 
 

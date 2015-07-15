@@ -50,8 +50,9 @@ aligned (FFT_BLOCK_LENGTH * 2 *2)));      		/* of an input signal. For this exam
 							/* array declared in Y-data space. */
 extern unsigned int Counter;
 extern volatile unsigned int timer_expired;
-unsigned long peakFrequency = 0;			/* frequency of the largest spectral component */
-
+int	peakFrequencyBinMain = 0;				/* Declare post-FFT variables to compute the */
+volatile unsigned long peakFrequency = 0;			/* frequency of the largest spectral component */
+volatile unsigned long peakViewer = 0;
 /******************************************************************************/
 /* Main Program                                                               */
 /******************************************************************************/
@@ -62,8 +63,56 @@ int16_t main(void)
     iPtr = &sigCmpx[0];//&inputSignal[0];
     doFilterFlag = 0;
      
-    setup_FFT_input(&sigCmpx[0]);
-	peakFrequency = freq_detect_FFT(&sigCmpx[0]);
+//    setup_FFT_input(&sigCmpx[0]);
+//	peakFrequency = freq_detect_FFT(&sigCmpx[0]);
+//    peakViewer = peakFrequency;
+    int i = 0;
+	fractional *p_real = &sigCmpx[0].real ;
+	fractcomplex *p_cmpx = &sigCmpx[0] ;
+
+
+#ifndef FFTTWIDCOEFFS_IN_PROGMEM					/* Generate TwiddleFactor Coefficients */
+	TwidFactorInit (LOG2_BLOCK_LENGTH, &twiddleFactors[0], 0);	/* We need to do this only once at start-up */
+#endif
+
+	for ( i = 0; i < FFT_BLOCK_LENGTH; i++ )/* The FFT function requires input data */
+	{					/* to be in the fractional fixed-point range [-0.5, +0.5]*/
+		*p_real = *p_real >>1 ;		/* So, we shift all data samples by 1 bit to the right. */
+		*p_real++;			/* Should you desire to optimize this process, perform */
+	}					/* data scaling when first obtaining the time samples */
+						/* Or within the BitReverseComplex function source code */
+
+	p_real = &sigCmpx[(FFT_BLOCK_LENGTH/2)-1].real ;	/* Set up pointers to convert real array */
+	p_cmpx = &sigCmpx[FFT_BLOCK_LENGTH-1] ; /* to a complex array. The input array initially has all */
+						/* the real input samples followed by a series of zeros */
+
+
+	for ( i = FFT_BLOCK_LENGTH-1; i > 0; i-- ) /* Convert the Real input sample array */
+	{					/* to a Complex input sample array  */
+		(*p_cmpx).real = (*p_real--);	/* We will simpy zero out the imaginary  */
+		(*p_cmpx--).imag = 0x0000;	/* part of each data sample */
+	}
+    (*p_cmpx).imag = 0x0000; //set first element's imag to 0
+	/* Perform FFT operation */
+#ifndef FFTTWIDCOEFFS_IN_PROGMEM
+	FFTComplexIP (LOG2_BLOCK_LENGTH, &sigCmpx[0], &twiddleFactors[0], COEFFS_IN_DATA);
+#else
+	FFTComplexIP (LOG2_BLOCK_LENGTH, &sigCmpx[0], (fractcomplex *) __builtin_psvoffset(&twiddleFactors[0]), (int) __builtin_psvpage(&twiddleFactors[0]));
+#endif
+
+	/* Store output samples in bit-reversed order of their addresses */
+	BitReverseComplex (LOG2_BLOCK_LENGTH, &sigCmpx[0]);
+
+	/* Compute the square magnitude of the complex FFT output array so we have a Real output vetor */
+	SquareMagnitudeCplx(FFT_BLOCK_LENGTH, &sigCmpx[0], &sigCmpx[0].real);
+
+	/* Find the frequency Bin ( = index into the SigCmpx[] array) that has the largest energy*/
+	/* i.e., the largest spectral component */
+	VectorMax(FFT_BLOCK_LENGTH/2, &sigCmpx[0].real, &peakFrequencyBinMain);
+
+	/* Compute the frequency (in Hz) of the largest spectral component */
+	peakFrequency = peakFrequencyBinMain*(SAMPLING_RATE/FFT_BLOCK_LENGTH);
+    peakViewer = peakFrequency;
     //unsigned int counterNum1;
     /* Configure the oscillator for the device */
     ConfigureOscillator();
@@ -82,23 +131,33 @@ int16_t main(void)
 
     while(FOREVER)
     {
-        if (timer_expired && Counter == FLASH_RATE )
-		{
-			//LATA = ~LATA;
-			//LATB = ~LATB;
-            LD1_O = ~LD1_O;
-			Counter = 0;
-			timer_expired = 0;
-		}
+//        if (timer_expired && Counter == FLASH_RATE )
+//		{
+//			//LATA = ~LATA;
+//			//LATB = ~LATB;
+//            LD1_O = ~LD1_O;
+//			Counter = 0;
+//			timer_expired = 0;
+//		}
 
         if (doFilterFlag)
         {
             setup_FFT_input(&sigCmpx[0]);
             peakFrequency = freq_detect_FFT(&sigCmpx[0]);
             doFilterFlag = 0;
+            peakViewer = peakFrequency;
             iPtr = &sigCmpx[0];//&inputSignal[0];
             AD1CON1bits.ADON = 1;
             T3CONbits.TON = 1;
+            //UART1TX('\r');
+            UART1TX('F');
+            UART1TX('r');
+            UART1TX('e');
+            UART1TX('q');
+            UART1TX(':');
+            
+            usart_print_decimal(peakFrequency);
+            //UART1TX('\r');
         }
 		
         

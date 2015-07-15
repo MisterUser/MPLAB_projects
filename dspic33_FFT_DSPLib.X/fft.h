@@ -2,9 +2,9 @@
 #define FFT_GK_H
 
 /* Constant Definitions */
-#define FFT_BLOCK_LENGTH	256     /* = Number of frequency points in the FFT */
-#define LOG2_BLOCK_LENGTH 	8	/* = Number of "Butterfly" Stages in FFT processing */
-#define SAMPLING_RATE		8000	/* = Rate at which input signal was sampled */
+#define FFT_BLOCK_LENGTH	512     /* = Number of frequency points in the FFT */
+#define LOG2_BLOCK_LENGTH 	9	/* = Number of "Butterfly" Stages in FFT processing */
+#define SAMPLING_RATE		2000	/* = Rate at which input signal was sampled */
                                         /* SAMPLING_RATE is used to calculate the frequency*/
                                         /* of the largest element in the FFT output vector*/
 
