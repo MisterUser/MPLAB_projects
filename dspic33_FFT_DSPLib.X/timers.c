@@ -36,6 +36,7 @@ void __attribute__((interrupt, auto_psv)) _T1Interrupt( void )
 {
 	timer_expired = 1;				/* flag */
 	Counter++;						/* keep a running counter */
+    //LD1_O = ~LD1_O;                 //toggling the LED every TIM1 Period
  	IFS0bits.T1IF = 0;				/* reset timer interrupt flag	*/
 }
 
@@ -43,6 +44,6 @@ void __attribute__((interrupt, auto_psv)) _T3Interrupt( void )
 {
 	//timer_expired = 1;				/* flag */
 	//Counter++;						/* keep a running counter */
-    LD1_O = ~LD1_O;
+    //LD1_O = ~LD1_O;                 //toggling the LED every TIM3 Period
  	IFS0bits.T3IF = 0;				/* reset timer interrupt flag	*/
 }

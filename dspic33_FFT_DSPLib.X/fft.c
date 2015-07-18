@@ -19,10 +19,7 @@
 #include "fft.h"
 
 int	peakFrequencyBin;				/* Declare post-FFT variables to compute the */
-int binViewer;
 float specDens = (float)SAMPLING_RATE/(float)FFT_BLOCK_LENGTH;
-float specDensViewer;
-int resultFreq;
 
 void setup_FFT_input(fractcomplex* sigCmpx)
 {
@@ -77,11 +74,10 @@ unsigned long freq_detect_FFT(fractcomplex* sigCmpx)
     fractional *p_real = &(sigCmpx->real);//pointer to real part
     //increment p_real to ignore DC bin
 	VectorMax(FFT_BLOCK_LENGTH/2-1, (++p_real), &peakFrequencyBin);
-    binViewer = peakFrequencyBin;
-    specDensViewer = specDens;
-    resultFreq = (peakFrequencyBin+1)*specDensViewer;
+    
 	/* Compute the frequency (in Hz) of the largest spectral component */
 	//0th bin from VectorMax is actually bin 1, so offset peakFrequencyBin by 1
-    return resultFreq;
+    return (peakFrequencyBin+1)*specDens;
     
 }
+
