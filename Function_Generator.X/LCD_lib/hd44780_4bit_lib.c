@@ -41,8 +41,8 @@
  *
  */
 
-#include <stdint.h>
-#include <string.h>
+
+
 
 #include "hd44780_4bit_lib.h"
 
@@ -73,6 +73,8 @@ void hd44780_init(uint8_t dispLines, uint8_t fontSize)
     // _write_8bit(line_mode)
     ;
     hd44780_send_command(HD44780_CMD_DISPLAY_ON);
+    //hd44780_send_command(HD44780_CMD_MOVE_CURSOR_RIGHT);
+    hd44780_send_command(HD44780_CMD_DISPLAY_ON_CURSOR_BLINK);
     hd44780_send_command(HD44780_CMD_RETURN_HOME);
     hd44780_send_command(HD44780_CMD_CLEAR_DISPLAY);
 }
@@ -84,31 +86,31 @@ void hd44780_init(uint8_t dispLines, uint8_t fontSize)
 
 void hd44780_send_command(uint8_t c)
 {
-    while (hd44780_get_busy_flag());
-    HD44780_PORT &= ~HD44780_RS;
+    HD44780_RS=0;
     _write_8bit(c);
 }
 
 void hd44780_write_special_char(uint8_t c)
 {
-    while (hd44780_get_busy_flag());
-    HD44780_PORT |= HD44780_RS;
+    
+    HD44780_RS = 1;
     _write_8bit(c);
-    HD44780_PORT &= ~HD44780_RS;
+    HD44780_RS = 0;
 }
 
 void hd44780_write_char(char c)
 {
-    while (hd44780_get_busy_flag());
-    HD44780_PORT |= HD44780_RS;
+    HD44780_RS = 1;
     _write_8bit(c);
-    HD44780_PORT &= ~HD44780_RS;
+    HD44780_RS = 0;
 }
 
 void hd44780_write_string(char *str)
 {
     while (*str != '\0')
+    {
         hd44780_write_char(*str++);
+    }
 }
 
 /*
@@ -244,8 +246,6 @@ static uint8_t _read_8bit()
 // sets cursor position for characters can be read or written
 void hd44780_setCursorPosition(uint8_t row, uint8_t col)
 {
-	 while (hd44780_get_busy_flag());
-
 	 uint8_t address;
 
 	 //
@@ -264,6 +264,7 @@ void hd44780_setCursorPosition(uint8_t row, uint8_t col)
 	 _write_8bit(address);
 }
 
+/*
 // reads characters from display, based on current cursor position
 uint8_t hd44780_readByte()
 {
@@ -281,8 +282,9 @@ uint8_t hd44780_readByte()
 
 	return data;
 }
+*/
 
-
+/*
 // Read a 4bit data value according to the timing characteristics and
 // timing diagrams listed on page 49 and page 58 of the datasheet.
 // We assume the MCLK frequency is 16MHz that way this code will also
@@ -303,12 +305,14 @@ static uint8_t _read_4bit()
 
     return data;
 }
+*/
 
 // Writes an 8bit value on the bus using _write_4bit()
 static void _write_8bit(uint8_t data)
 {
-    HD44780_PORTDIR |= HD44780_4DATA;
-    HD44780_PORT &= ~HD44780_RW;
+    //Don't need the following two lines because never read, so exit only!
+    //HD44780_PORTDIR |= HD44780_4DATA;
+    //HD44780_PORT &= ~HD44780_RW;
     _write_4bit(data>>4);
     _write_4bit(data & 0x0f);
 }
@@ -321,18 +325,27 @@ static void _write_8bit(uint8_t data)
 static void _write_4bit(uint8_t data)
 {
     // no need to wait 60ns for t_AS, the function call provides the delay
-    HD44780_PORT |= HD44780_EN;
-    HD44780_PORT |= data << HD44780_DATA_OFFSET;
+    HD44780_EN =1;
+    LATB |= data << HD44780_DATA_OFFSET;
 
     // Satisfy the PW_EH (hold EN for 450ns)
     // and t_DSW requirement (data set-up 195ns)
     __delay_cycles(1 * CPUSPEED);
 
-    HD44780_PORT &= ~HD44780_EN;
+    HD44780_EN=0;
 
     // The data hold t_H is 10ns, no extra delay is needed
-    HD44780_PORT &= ~HD44780_4DATA;
+    LATB &= 0b1100001111111111; //clear data lines
 
     // Delay required to satisfy t_cycE parameter (min 1000ns for 1 EN cycle)
     __delay_cycles(1 * CPUSPEED);
+}
+
+void __delay_cycles(int cycles)
+{
+    int i = 0,j;
+    for(i;i<cycles;i++)
+    {
+        j=i;
+    }
 }

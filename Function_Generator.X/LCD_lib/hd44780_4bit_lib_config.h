@@ -44,16 +44,15 @@
 #ifndef HD44780LIB_4BIT_CONFIG_H
 #define HD44780LIB_4BIT_CONFIG_H
 
-#define HD44780_PORT        P1OUT
-//#define HD44780_PORTDIR     P1DIR
-//#define HD44780_PORTIN      P1IN
+#include <p24Hxxxx.h>      /* Pin definitions */
 
-#define HD44780_RS          BIT0
-//#define HD44780_RW          BIT1
-#define HD44780_EN          BIT2
-//#define HD44780_BUSY        BIT7
-#define HD44780_4DATA       (BIT7 | BIT6 | BIT5 | BIT4)
-//#define HD44780_8DATA       (BIT7 | BIT6 | BIT5 | BIT4 | BIT3 | BIT2 | BIT1 | BIT0)
-#define HD44780_DATA_OFFSET 4
+#define HD44780_RS          LATBbits.LATB9
+#define HD44780_DATA4       LATBbits.LATB10
+#define HD44780_DATA5       LATBbits.LATB11
+#define HD44780_DATA6       LATBbits.LATB12
+#define HD44780_DATA7       LATBbits.LATB13
+#define HD44780_EN          LATBbits.LATB14
+
+#define HD44780_DATA_OFFSET 10
 
 #endif // HD44780LIB_4BIT_CONFIG_H

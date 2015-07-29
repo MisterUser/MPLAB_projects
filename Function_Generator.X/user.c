@@ -53,6 +53,15 @@ void InitApp(void)
     //TRISBbits.TRISB3 = 1; //AN5 on pin 7 as input for ADC pos
     //TRISAbits.TRISA1 = 1; //AN1 on pin 3 as input for ADC neg
     
+    //For LCD
+    TRISBbits.TRISB9=0;
+    TRISBbits.TRISB10=0;
+    TRISBbits.TRISB11=0;
+    TRISBbits.TRISB12=0;
+    TRISBbits.TRISB13=0;
+    TRISBbits.TRISB14=0;
+    
+    //Function Pins
     TRISBbits.TRISB0=0;
     TRISBbits.TRISB1=0;
 

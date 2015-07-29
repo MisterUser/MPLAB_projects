@@ -42,7 +42,12 @@ int16_t main(void)
     /* Initialize IO ports and peripherals */
     InitApp();
 
-    /* TODO <INSERT USER APPLICATION CODE HERE> */
+    hd44780_init(N_2LINE,FONT_8);
+    //hd44780_setCursorPosition(0, 0);
+    hd44780_write_char(' ');
+    hd44780_write_char('G');
+    hd44780_write_char('K');
+    hd44780_write_string("hat DE Lieb");
 
     while(1)
     {
@@ -75,7 +80,11 @@ int16_t main(void)
                     MSLED_O=1;
                 }
 			}
-            else UART1TX(c);//echo the character back
+            else
+            {
+                UART1TX(c);//echo the character back
+                hd44780_write_char(c);
+            }
   		}
     }
 }

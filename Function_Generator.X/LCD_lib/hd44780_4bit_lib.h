@@ -26,6 +26,7 @@
 #define HD44780_4BIT_LIB_H
 
 #include <stdint.h>
+#include <string.h>
 #include "hd44780_4bit_lib_config.h"
 
 // Command definitions, see page 24 of the datasheet for more info
@@ -47,20 +48,20 @@
 #define HD44780_CMD_MOVE_CURSOR_LEFT            0x10
 
 #define FUNCTION_SET							0x20	// sets the Function set bit, DB5
-#define DL_8BITS								0x10	// sets data length to 8 bits
+//#define DL_8BITS								0x10	// sets data length to 8 bits
 #define DL_4BITS								0x0		// sets data length to 4 bits
 #define N_2LINE									0x8		// sets the number of lines to 2
-#define N_1LINE									0x0		// sets the number of lines to 1
-#define FONT_10									0x4		// sets the font to 5x10 dots
+//#define N_1LINE									0x0		// sets the number of lines to 1
+//#define FONT_10									0x4		// sets the font to 5x10 dots
 #define FONT_8									0x0		// sets the font to 5x8 dots
 
 // constants used for __delay_cycles() function to calculate microsecond wait times
 // CPUSPEED currently set for 1 MHZ
-#define CPU1MHZ									1
-#define CPU4MHZ									4
-#define CPU8MHZ									8
-#define CPU16MHZ								16
-#define CPUSPEED								CPU1MHZ
+//#define CPU1MHZ									1
+//#define CPU4MHZ									4
+//#define CPU8MHZ									8
+//#define CPU16MHZ								16
+#define CPUSPEED								40
 
 /*
  * HD44780 initialization function must be run before any other hd44780_*
@@ -127,7 +128,7 @@ void hd44780_write_string(char*);
  * number of click cycles to wait after drawing each character
  */
 
-void hd44780_animateRight(char *str, int dispWidth, char justify, int pause);
+//void hd44780_animateRight(char *str, int dispWidth, char justify, int pause);
 
 /*
  * anaimates drawing text to display from the right to the left  of the display, function parameters:
@@ -138,20 +139,21 @@ void hd44780_animateRight(char *str, int dispWidth, char justify, int pause);
  * number of click cycles to wait after drawing each character
  */
 
-void hd44780_animateLeft(char *str, int dispWidth, char justify, int pause);
+//void hd44780_animateLeft(char *str, int dispWidth, char justify, int pause);
 
 /*
  * reads a character from DDRAM of the display based on the current cursor position
  */
 
-uint8_t hd44780_readByte();
+//uint8_t hd44780_readByte();
 
 /*
  * Returns the busy flag as reported by the HD44780.
  * Returns either 0x80 (busy) or 0x00 (not busy).
 */
 
-uint8_t hd44780_get_busy_flag();
+//uint8_t hd44780_get_busy_flag();
 
+void __delay_cycles(int cycles);
 
 #endif // HD44780LIB_H
