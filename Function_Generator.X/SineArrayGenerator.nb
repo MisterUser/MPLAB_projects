@@ -1,0 +1,127 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 9.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       157,          7]
+NotebookDataLength[      3849,        117]
+NotebookOptionsPosition[      3390,         96]
+NotebookOutlinePosition[      3733,        111]
+CellTagsIndexPosition[      3690,        108]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"sin100", "=", 
+  RowBox[{"Array", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"15", "*", 
+      RowBox[{"(", 
+       RowBox[{"0.5", "+", 
+        RowBox[{".5", "*", 
+         RowBox[{"Sin", "[", 
+          RowBox[{"2", "Pi", "#"}], "]"}]}]}], ")"}]}], "&"}], ",", "16", ",", 
+    RowBox[{"{", 
+     RowBox[{"0", ",", "1"}], "}"}]}], "]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+   "100", "Hz", " ", "sine", " ", "wave", " ", "with", " ", "Amplitude1"}], 
+   "*)"}]}]], "Input",
+ CellChangeTimes->{{3.647170105920413*^9, 3.6471701636822577`*^9}, {
+  3.647170197849614*^9, 3.647170253034786*^9}, {3.6471703034631577`*^9, 
+  3.647170321138167*^9}, {3.647171067609558*^9, 3.647171079335034*^9}, {
+  3.6471711285902743`*^9, 3.647171129722984*^9}, {3.6471711965212517`*^9, 
+  3.647171196552371*^9}, {3.647171445672714*^9, 3.647171475584616*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "7.5`", ",", "10.550524823068502`", ",", "13.073586191080457`", ",", 
+   "14.632923872213652`", ",", "14.95891421526205`", ",", 
+   "13.99519052838329`", ",", "11.908389392193548`", ",", 
+   "9.059337681133195`", ",", "5.9406623188668055`", ",", 
+   "3.0916106078064516`", ",", "1.0048094716167104`", ",", 
+   "0.041085784737950326`", ",", "0.3670761277863485`", ",", 
+   "1.926413808919543`", ",", "4.449475176931498`", ",", "7.5`"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.6471701474966364`*^9, 3.6471701670620327`*^9}, 
+   3.647170199528903*^9, {3.6471702344626713`*^9, 3.6471702542184567`*^9}, {
+   3.6471703042851696`*^9, 3.6471703217636757`*^9}, 3.6471710836172266`*^9, 
+   3.64717113102017*^9, 3.6471711979902163`*^9, {3.64717145738842*^9, 
+   3.647171476397278*^9}}]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"fourBitSine", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "7", ",", "10", ",", "13", ",", "14", ",", "15", ",", "14", ",", "12", 
+     ",", "9", ",", "6", ",", "3", ",", "1", ",", "0", ",", "1", ",", "2", 
+     ",", "5"}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.647171619372814*^9, 3.647171684010416*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"ListLinePlot", "[", "fourBitSine", "]"}]], "Input",
+ CellChangeTimes->{{3.647171685966171*^9, 3.647171708509285*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, {}, 
+    {RGBColor[0.24720000000000014`, 0.24, 0.6], 
+     LineBox[{{1., 7.}, {2., 10.}, {3., 13.}, {4., 14.}, {5., 15.}, {6., 
+      14.}, {7., 12.}, {8., 9.}, {9., 6.}, {10., 3.}, {11., 1.}, {12., 0.}, {
+      13., 1.}, {14., 2.}, {15., 5.}}]}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->True,
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0},
+  Method->{},
+  PlotRange->{{0, 15.}, {0, 15.}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{0.3, 0.3}, {0.3, 0.3}}]], "Output",
+ CellChangeTimes->{3.64717170988485*^9}]
+}, Open  ]]
+},
+WindowSize->{1350, 641},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"9.0 for Microsoft Windows (64-bit) (January 25, 2013)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[579, 22, 855, 21, 31, "Input"],
+Cell[1437, 45, 820, 15, 31, "Output"]
+}, Open  ]],
+Cell[2272, 63, 345, 8, 31, "Input"],
+Cell[CellGroupData[{
+Cell[2642, 75, 141, 2, 31, "Input"],
+Cell[2786, 79, 588, 14, 277, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

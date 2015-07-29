@@ -13,7 +13,7 @@
     #endif
 #endif
 
-#include <p33Fxxxx.h>
+#include <p33Fxxxx.h>      /* Pin definitions */
 #include <stdint.h>        /* Includes uint16_t definition                    */
 #include <stdbool.h>       /* Includes true/false definition                  */
 #include <dsp.h>
@@ -91,6 +91,7 @@ int16_t main(void)
             peakFrequency = freq_detect_FFT(&sigCmpx[0]);
             //find all frequencies over given threshold in user.h
             Isolate_Fund_Freqs(&(sigCmpx->real), &significant_frequencies[0]);
+            
             
             LD1_O = 0;
             
